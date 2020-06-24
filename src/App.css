@@ -1,38 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+
 .App {
-  text-align: center;
+  background-color:  #F5F7F8;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
 }
 
+/*Login & Register----------------------------*/
 .App-logo {
-  height: 40vmin;
+  height: 15vmin;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  padding-top: 6vmin;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(3px + 1vmin);
+  font-weight: 300;
   color: white;
+  font-family: 'Jura', sans-serif;
+  background-color:  #041B15;
+}
+.log-reg-container{
+  background-color:  #041B15;
+}
+.register-form,
+.login-form {
+  text-align: left;
+  padding: 1em;
+  line-height: 2.5em;
+  color: black;
+  font-size: 80%;
+  
+}
+.register,
+.login{
+  margin: auto;
+  background-color: #F5F7F8;
+  padding: 0.25em;
+  width: 45vmin;
+  font-family: 'Jura', sans-serif;
+  border-radius: 0.25em;
+  box-shadow: 0.25em 0.25em black;
+
 }
 
-.App-link {
-  color: #61dafb;
+.register input,
+.login input
+{
+  border: none;
+  border-bottom: 1px solid #D3D3D3;
+  background-color: #F5F7F8;
+  width: 100%;
+  height: 1.5em;
+  margin-bottom: 0.5em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.link-login,
+.link-register{
+  color: black;
+  margin: 0 1em;
 }
+
+.register input:focus {
+  border-color: #E71D36;
+}
+
+main.home button,
+.add-task .button,
+input[type=submit]{
+  text-align: center;
+  background: black;
+  margin-top: 1em;
+  padding-top: 2px;
+  width: 9em;
+  height: 3em;
+  border-radius: 25px;
+  color: white; 
+}
+
+input[type=submit]:hover {
+  background: #E71D36;
+}
+
+.invalid-feedback
+{
+  color: #E71D36;
+  font-weight: bold;
+}
+
+.confirmation {
+  text-align: center;
+}
+
+footer.main{
+  color:white;
+  padding: 0.5em 0;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+  background-color: #041B15
+}
+
+.footer-log-reg-container{
+  height: 100%;
+  background-color: #041B15
+
+}
+
+.footer-log-reg{
+  color:white;
+  padding: 0.5em 0;
+  text-align: center;
+  height: 100vmin;
+  background-color: #041B15
+}
+/*nav------------------------*/
+
+.nav-logo {
+  height: 8vmin;
+}
+
+/*Home------------------------*/
+
+main.home, 
+main.add-task,
+main.tasklists{
+  margin: auto;
+  background-color: #F5F7F8;
+  padding: 0.25em;
+  height: 100%;
+  width: 100%;
+}
+
+.add-task-container{
+  margin: auto;
+  background-color: #F5F7F8;
+  padding: 0.25em;
+  width: 45vmin;
+  text-align: center;
+  border-radius: 0.25em;
+
+}
+
+.add-task form{
+  text-align: left;
+  padding: 1em;
+  border: 1px solid black;
+  background: white;
+  line-height: 2.5em;
+  color: black;
+  font-size: 80%;
+}
+
+.add-task input{
+  border: none;
+  border-bottom: 1px solid #D3D3D3;
+  background-color: #F5F7F8;
+  width: 100%;
+  height: 1.5em;
+  margin-bottom: 0.5em;
+  background: white;
+}
+
+main.home,
+main.tasklists {
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+}
+
+
