@@ -1,6 +1,7 @@
 //NPM's
 import React, {useState} from "react";
 import {useDispatch, useSelector} from 'react-redux';
+import moment from 'moment';
 
 //Actions 
 import {addTask} from '../../actions/task'
@@ -8,9 +9,11 @@ import {addTask} from '../../actions/task'
 
 export default function TaskForm() {
 
+    const date = moment().format("YYYY-MM-DD");
+
     const [submitted, setSubmitted] = useState(false);
     const [text, setText] = useState("")
-    const [tocomplete, setTocomplete] = useState("");
+    const [tocomplete, setTocomplete] = useState(date);
     const [weight, setWeight] = useState("Easy");
     const [send, setSend] = useState(false)
     //const [public2, setPublic2] = useState("");
@@ -18,20 +21,18 @@ export default function TaskForm() {
     const loading = useSelector(state => state.user.login.loading);
     const dispatch = useDispatch();
 
-    console.log(weight)
-
     const submitHandler = (e) => {
         e.preventDefault();
         setSubmitted(true);
 
-        //console.log(text,  tocomplete, weight, public2)
+        console.log(text,  tocomplete, weight)
         if (text  && tocomplete && weight) {
             dispatch(addTask(text,  tocomplete, weight));
             setSubmitted(false);
             setSend(true)
             setText("")
-            setTocomplete("")
-            setWeight("")
+            //setTocomplete("")
+            setWeight("Easy")
         }
         
     }

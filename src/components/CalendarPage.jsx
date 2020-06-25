@@ -26,15 +26,21 @@ export default function CalendarPage() {
         return [year, month, day].join('-');
     }
 
+    let props = {
+        date: formatDate(date),
+        status:"incomplete"
+        }
+
+    console.log(date)
     console.log(formatDate(date))
 
     const onChange = date => {
         setDate(date);
       };
-
+      
     return <main className="home">
 
             <Calendar  onChange={onChange} value={date} />  
-            <TaskList date={formatDate(date)}/>          
+            <TaskList {...props}/>          
     </main>;
 }

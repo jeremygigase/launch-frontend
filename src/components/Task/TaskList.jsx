@@ -8,13 +8,17 @@ import TaskResult from "./TaskResult"
 // Actions
 import {getTasks} from '../../actions/task'
 
-export default function TaskList({date}) {
+export default function TaskList(props) {
+
+    console.log(props)
+    const date = props.date
+    const status = props.status
 
     const user = useSelector(state => state.user.user)
     const id = user.id
     
     const dispatch = useDispatch();
-    useEffect(()=> dispatch(getTasks(id, date)), [])
+    useEffect(()=> dispatch(getTasks(id, date, status)), [dispatch, id, date, status])
     const tasks = useSelector(state => state.task.tasks.data)
 
     return <div>

@@ -1,5 +1,5 @@
 
-import React, {useState} from "react";
+import React from "react";
 import moment from 'moment';
 
 import TaskList from './TaskList'
@@ -8,9 +8,6 @@ export default function TaskLists() {
 
     const today = moment().format("YYYY-MM-DD");
     const tommorrow = moment().add(1,'days').format("YYYY-MM-DD");
-
-
-
 
     return <>
     <main className="tasklists">

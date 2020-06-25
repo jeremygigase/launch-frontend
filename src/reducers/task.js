@@ -86,8 +86,7 @@ export default (state=initialState, { type , payload }) => {
                     ...state,
                     tasks: {
                         ...state,
-                        loading:false,
-                        data: payload
+                        loading:false
                     }
                 }
             case ERROR_COMPLETE_TASK:

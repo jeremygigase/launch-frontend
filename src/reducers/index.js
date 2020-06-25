@@ -10,17 +10,19 @@ import Cookies from "js-cookie";
 import userReducer from "./user";
 import taskReducer from "./task";
 import scoreReducer from "./score";
+import friendReducer from "../actions/friend";
 
 const persistConfig = {
   key: "root",
-  whitelist: ["user" , "task", "score"],
+  whitelist: ["user" , "task", "score", "friend"],
   storage
 };
 
 const appReducer = persistCombineReducers(persistConfig, {
   user: userReducer,
   task: taskReducer,
-  score: scoreReducer
+  score: scoreReducer,
+  friend: friendReducer
 
 });
 

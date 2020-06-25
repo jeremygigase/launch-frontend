@@ -1,9 +1,6 @@
 // Helpers
 import configJWT from '../helpers/configJWT'
 
-// Actions
-import {postScore} from "./score"
-
 export const initialState= {
     tasks: {
         loading: false,
@@ -29,10 +26,10 @@ export const SUCCES_DELETE_TASK = 'SUCCES_DELETE_TASK'
 export const ERROR_DELETE_TASK = 'ERROR_DELETE_TASK'
 
 
-export const getTasks = (id, tocomplete) => dispatch => {
+export const getTasks = (id, tocomplete, status) => dispatch => {
     dispatch(setTasksStart())
     configJWT
-    .get(`${process.env.REACT_APP_API}/users/${id}/tasks?tocomplete=${tocomplete}&status=incomplete`)
+    .get(`${process.env.REACT_APP_API}/users/${id}/tasks?tocomplete=${tocomplete}&status=${status}`)
     .then(response => {
         console.log(response.data['hydra:member'])
         dispatch(setTasksSucces(response.data['hydra:member']))
@@ -87,7 +84,7 @@ export const setTasksSucces = (data) => ({
       payload: message
   }) 
 
-  export const completeTask = (id, date, amount) => (dispatch) => {
+  export const completeTask = (id, date) => (dispatch) => {
     dispatch(completeTaskStart())
     configJWT
     .put(`${process.env.REACT_APP_API}/tasks/${id}`,
@@ -98,7 +95,7 @@ export const setTasksSucces = (data) => ({
     .then(response => {
         console.log(response)
         dispatch(completeTaskSucces())
-        dispatch(postScore(amount, date))
+        dispatch(getTasks(id, date))
     })
     .catch(dispatch(completeTaskError("Could not complete task!")))
 }
@@ -107,9 +104,8 @@ export const completeTaskStart= () => ({
     type: START_COMPLETE_TASK
 });
   
-export const completeTaskSucces = (data) => ({
+export const completeTaskSucces = () => ({
     type: SUCCES_COMPLETE_TASK,
-    payload: data
 })
   
 export const completeTaskError= (message) => ({

@@ -107,9 +107,14 @@ const OverlayMenu = styled.ul`
 
 
 
+
 export default function Home() {
 
     const [toggle, toggleNav] = useState(false);
+
+    const clickHandler = () => {
+      toggleNav(!toggle)
+  }
 
     return <>
     <Nav>
@@ -134,7 +139,7 @@ export default function Home() {
             <Logout />
           </Item>
         </Menu>
-        <NavIcon onClick={() => toggleNav(!toggle)}>
+        <NavIcon onClick={clickHandler}>
           <Line open={toggle} />
           <Line open={toggle} />
           <Line open={toggle} />
@@ -143,19 +148,19 @@ export default function Home() {
       <Overlay open={toggle}>
         <OverlayMenu open={toggle}>
             <Item>
-                <StyledLink to="/tasklists">Tasklists </StyledLink>
+                <StyledLink onClick={clickHandler}  to="/tasklists">Tasklists </StyledLink>
             </Item>
             <Item>
-                <StyledLink to="/calendar">Calendar </StyledLink>
+                <StyledLink onClick={clickHandler} to="/calendar">Calendar </StyledLink>
             </Item>
             <Item>
-                <StyledLink to="/friends">Friends </StyledLink>
+                <StyledLink onClick={clickHandler} to="/friends">Friends </StyledLink>
             </Item>
             <Item>
-                <StyledLink to="/addtask">Add Task</StyledLink>
+                <StyledLink onClick={clickHandler} to="/addtask">Add Task</StyledLink>
             </Item>
             <Item>
-                <StyledLink to="/profile">Profile </StyledLink>
+                <StyledLink onClick={clickHandler} to="/profile">Profile </StyledLink>
             </Item>
             <Item>
                 <Logout />

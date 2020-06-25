@@ -1,12 +1,7 @@
 // NPM'S
 import React, {useState} from "react";
 import styled from "styled-components";
-import {useDispatch} from 'react-redux';
-import moment from 'moment';
-//To Do Change cursor to pointer
 
-// Actions
-import {completeTask, deleteTask} from '../../actions/task'
 
 // Components 
 import TaskOptions from './TaskOptions'
@@ -52,7 +47,15 @@ export default function Task({task}) {
         return weights[color];
     }
 
+    let optionsComponent = ""
 
+    if(task.status === "incomplete" ){
+        optionsComponent = 
+    <Options>
+        <TaskOptions props={task}/>
+    </Options>
+    }
+    
     return <>
         <Description onClick={() =>
             setOptions(!options)}>
@@ -61,10 +64,7 @@ export default function Task({task}) {
         <Weight bGColor={getBGColor(task.weight)}>
             {getWeight(task.weight)}
         </Weight>
-        {options ?
-        <Options>
-            <TaskOptions props={task}/>
-        </Options> : ""}
+        {options ? optionsComponent : ""}
     </>
 
 ;
