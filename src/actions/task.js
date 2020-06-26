@@ -1,3 +1,5 @@
+import {useSelector} from 'react-redux'
+
 // Helpers
 import configJWT from '../helpers/configJWT'
 
@@ -8,6 +10,8 @@ export const initialState= {
         data: []
     }
 }
+
+
 
 export const GET_TASKS_START = "GET_TASKS_START";
 export const GET_TASKS_SUCCES = "GET_TASKS_SUCCES";
@@ -95,7 +99,7 @@ export const setTasksSucces = (data) => ({
     .then(response => {
         console.log(response)
         dispatch(completeTaskSucces())
-        dispatch(getTasks(id, date))
+        dispatch(getTasks(id, date, "complete"))
     })
     .catch(dispatch(completeTaskError("Could not complete task!")))
 }

@@ -1,5 +1,5 @@
 // NPM'S
-import React from "react";
+import React, { useState, useEffect} from "react";
 import styled from "styled-components";
 import {useDispatch} from 'react-redux';
 import moment from 'moment';
@@ -22,7 +22,7 @@ float: left;`
 
 export default function TaskOptions({props}) {
     const dispatch = useDispatch();
-    const date = moment().format("YYYY-MM-DD");
+    const [date, setDate] = useState(moment().format("YYYY-MM-DD"));
 
     const getWeight = (number) => {
         const weights = {
@@ -32,6 +32,7 @@ export default function TaskOptions({props}) {
         };
         return weights[number];
     }
+
 
     const completeHandler = (id, date, weight) => {
         dispatch(completeTask(id, date, getWeight(weight)))
