@@ -11,10 +11,11 @@ import userReducer from "./user";
 import taskReducer from "./task";
 import scoreReducer from "./score";
 import friendReducer from "../actions/friend";
+import checkReducer from "../actions/check";
 
 const persistConfig = {
   key: "root",
-  whitelist: ["user" , "task", "score", "friend"],
+  whitelist: ["user" , "task", "score", "friend", "check"],
   storage
 };
 
@@ -22,7 +23,8 @@ const appReducer = persistCombineReducers(persistConfig, {
   user: userReducer,
   task: taskReducer,
   score: scoreReducer,
-  friend: friendReducer
+  friend: friendReducer,
+  check: checkReducer
 
 });
 

@@ -1,5 +1,6 @@
 // NPM's
 import axios from 'axios';
+//import moment from 'moment'
 
 // Helpers
 import configJWT  from '../helpers/configJWT';
@@ -78,14 +79,14 @@ export const loginUser = (username,password) => (dispatch) => {
     axios
     .post(`${process.env.REACT_APP_API}/login_check`,{
             "username": username ,
-            "password": password    
+            "password": password,    
     })
     .then(response => {
         dispatch(setUser(username));
         dispatch(setSuccesLogin(response.data.token))
         console.log(response)
     })
-    .catch(dispatch(setErrorLogin("login")))
+    .catch( error => dispatch(setErrorLogin(error.response.data.message)) )
 }
 
 export const setUser = (username) => (dispatch) => {
@@ -93,10 +94,12 @@ export const setUser = (username) => (dispatch) => {
     configJWT
     .get(`${process.env.REACT_APP_API}/users?username=${username}`)
     .then(response => {
-        //console.log(response.data['hydra:member'][0])
+        console.log(response.data['hydra:member'][0])
         dispatch(setUserSucces(response.data['hydra:member'][0]))
     })
-    .catch(dispatch(setErrorLogin("Login")))
+    .catch( 
+        dispatch(setErrorLogin("Login"))
+        )
 }
 
 export const setStartLogin = () => ({

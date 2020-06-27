@@ -1,12 +1,15 @@
 // NPM's
 import React, {useState} from "react";
 import Calendar from 'react-calendar';
-//import styled from 'styled-components'
+import styled from 'styled-components'
 
 // Components
 import TaskList from './Task/TaskList'
 
-//const Container = styled.div``;
+const CalendarMain = styled.main`
+color:black;
+margin: 0 auto;
+width: 50%;`;
 
 export default function CalendarPage() {
 
@@ -38,9 +41,12 @@ export default function CalendarPage() {
         setDate(date);
       };
       
-    return <main className="home">
-
-            <Calendar  onChange={onChange} value={date} />  
-            <TaskList {...props}/>          
-    </main>;
+    return <CalendarMain>
+        <div>
+            <Calendar  className={['calendar']} onChange={onChange} value={date} />  
+        </div>
+        <div>
+            <TaskList {...props}/> 
+        </div>               
+    </CalendarMain>;
 }

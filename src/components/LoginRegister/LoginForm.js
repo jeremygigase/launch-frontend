@@ -15,13 +15,18 @@ export default function LoginForm() {
     const [password, setPassword] = useState("");
     //lastlogin needs to be send
 
-    const loading = useSelector(state => state.user.login.loading);
-    const dispatch = useDispatch();
+    // showError?
 
+    const error = useSelector(state => state.user.login.error)
+    console.log(error)
+
+    const dispatch = useDispatch();
 
     const submitHandler = (e) => {
         e.preventDefault();
         setSubmitted(true);
+        console.log("click")
+
 
         if (username && password) {
             dispatch(loginUser(username, password));
@@ -43,7 +48,7 @@ export default function LoginForm() {
                 </div>
                 <div className="">
                     <label htmlFor="password">Password</label>
-                    <input type="password" id="password" name="password" value={password} onChange={(e)=>{
+                    <input type="password" id="password" name="password" value={password} autoComplete="on" onChange={(e)=>{
                             setPassword(e.target.value)
                         }} 
                         pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required />
@@ -51,8 +56,13 @@ export default function LoginForm() {
                             <div className="invalid-feedback">Password is required</div>
                         }
                 </div>
-                <input type="submit" value="Login" className="button" disabled={loading}/>
+                <input type="submit" value="Login" className="button" />
                 <Link to="/register" className="link-register">Not registered yet?</Link>
+                {submitted && error && error.bool === true &&
+                <div>
+                    {error.message}
+                </div>}
+                
             </form>
         </main>
     </>);

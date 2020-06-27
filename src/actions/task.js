@@ -1,4 +1,3 @@
-import {useSelector} from 'react-redux'
 
 // Helpers
 import configJWT from '../helpers/configJWT'

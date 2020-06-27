@@ -176,4 +176,24 @@ main.tasklists {
   text-align: center;
 }
 
+.calendar {
+ margin: em 0;
+ margin: 0 auto;
+ width: 50%;
+}
+
+.calendar button {
+  background: white;
+  color: black;
+  height: 3em;
+  border: 1px solid black;
+}
+
+.calendar button:hover, 
+.calendar button:active, 
+.calendar button::target {
+  background: #E71D36;
+  color: white;
+
+}
 
