@@ -3,19 +3,19 @@ import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { persistStore, persistCombineReducers } from "redux-persist";
-import storage from "redux-persist/lib/storage"; 
+import storage, {AsyncStorage} from "redux-persist/lib/storage"; 
 import Cookies from "js-cookie";
+//import logger from 'redux-logger'
 
 // Reducers
 import userReducer from "./user";
 import taskReducer from "./task";
 import scoreReducer from "./score";
-import friendReducer from "../actions/friend";
-import checkReducer from "../actions/check";
+import friendReducer from "./friend";
 
 const persistConfig = {
   key: "root",
-  whitelist: ["user" , "task", "score", "friend", "check"],
+  whitelist: ["user" , "task", "score", "friend"],
   storage
 };
 
@@ -24,8 +24,6 @@ const appReducer = persistCombineReducers(persistConfig, {
   task: taskReducer,
   score: scoreReducer,
   friend: friendReducer,
-  check: checkReducer
-
 });
 
 const rootReducer = (state, action) => {
@@ -41,6 +39,6 @@ export const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(thunk))
 );
-export const persistor = persistStore(store);
+export const persistor = persistStore(store, {storage: AsyncStorage});
 
 export default store;

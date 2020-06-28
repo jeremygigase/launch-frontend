@@ -104,7 +104,7 @@ footer.main{
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 2.5rem;
+  height: 3rem;
   background-color: #041B15
 }
 
@@ -118,82 +118,12 @@ footer.main{
   color:white;
   padding: 0.5em 0;
   text-align: center;
-  height: 100vmin;
+  height: 115vmin;
   background-color: #041B15
 }
 /*nav------------------------*/
 
 .nav-logo {
   height: 8vmin;
-}
-
-/*Home------------------------*/
-
-main.home, 
-main.add-task,
-main.tasklists{
-  margin: auto;
-  background-color: #F5F7F8;
-  padding: 0.25em;
-  height: 100%;
-  width: 100%;
-}
-
-.add-task-container{
-  margin: auto;
-  background-color: #F5F7F8;
-  padding: 0.25em;
-  width: 45vmin;
-  text-align: center;
-  border-radius: 0.25em;
-
-}
-
-.add-task form{
-  text-align: left;
-  padding: 1em;
-  border: 1px solid black;
-  background: white;
-  line-height: 2.5em;
-  color: black;
-  font-size: 80%;
-}
-
-.add-task input{
-  border: none;
-  border-bottom: 1px solid #D3D3D3;
-  background-color: #F5F7F8;
-  width: 100%;
-  height: 1.5em;
-  margin-bottom: 0.5em;
-  background: white;
-}
-
-main.home,
-main.tasklists {
-  margin: 0 auto;
-  width: 50%;
-  text-align: center;
-}
-
-.calendar {
- margin: em 0;
- margin: 0 auto;
- width: 50%;
-}
-
-.calendar button {
-  background: white;
-  color: black;
-  height: 3em;
-  border: 1px solid black;
-}
-
-.calendar button:hover, 
-.calendar button:active, 
-.calendar button::target {
-  background: #E71D36;
-  color: white;
-
 }
 

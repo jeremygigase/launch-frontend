@@ -13,8 +13,6 @@ import {getTasks} from '../../actions/task'
 
 
 export default function TaskList(props) {
-
-    console.log(props)
     const date = props.date
     const status = props.status
 

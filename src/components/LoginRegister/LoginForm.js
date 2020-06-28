@@ -6,8 +6,6 @@ import {Link} from 'react-router-dom'
 //Actions 
 import {loginUser} from '../../actions/user'
 
-//To Do add loading asset
-
 export default function LoginForm() {
     
     const [submitted, setSubmitted] = useState(false);
@@ -15,18 +13,14 @@ export default function LoginForm() {
     const [password, setPassword] = useState("");
     //lastlogin needs to be send
 
-    // showError?
 
     const error = useSelector(state => state.user.login.error)
-    console.log(error)
 
     const dispatch = useDispatch();
 
     const submitHandler = (e) => {
         e.preventDefault();
         setSubmitted(true);
-        console.log("click")
-
 
         if (username && password) {
             dispatch(loginUser(username, password));

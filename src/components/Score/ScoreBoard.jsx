@@ -2,12 +2,27 @@
 import React, {useEffect} from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import moment from 'moment';
+import styled from 'styled-components'
 
 // Actions
 import {getScores} from '../../actions/score'
 
 // Components
 //import Score from './Score'
+
+const Circle = styled.div`
+margin: 0 auto;
+border: 4px solid #136F63;
+width: 100px;
+height: 100px;
+border-radius: 50%;`
+
+const Score = styled.h3`
+margin:auto;
+line-height:95px;
+vertical-align:middle;
+color: #136F63;
+`
 
 export default function ScoreBoard({date}) {
 
@@ -22,15 +37,16 @@ export default function ScoreBoard({date}) {
     let dayScore = 0
     //let yesterdayScore = 0
 
-    
-
     const calculateScore = (calculatedScore) => {
         scores && scores.map(score => (calculatedScore += score.amount))
         return calculatedScore
     }
 
     return <div>
-         <h3>Today</h3>
-            <h3>{calculateScore(dayScore)}</h3>
+        <h3>Your Score Today</h3>
+        <Circle>
+            <Score>{calculateScore(dayScore)}</Score>
+        </Circle>
+            
     </div>;
 }

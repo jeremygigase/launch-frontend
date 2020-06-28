@@ -55,7 +55,7 @@ export const setTasksSucces = (data) => ({
   })
 
   
-  export const addTask = (text, tocomplete, weight) => (dispatch) => {
+  export const addTask = (text, tocomplete, weight, public2) => (dispatch) => {
       dispatch(addTaskStart())
       configJWT
       .post(`${process.env.REACT_APP_API}/tasks`,
@@ -64,7 +64,7 @@ export const setTasksSucces = (data) => ({
           "status": "incomplete",
           "tocomplete": tocomplete,
           "weight": weight,
-          "public": true 
+          "public": public2
       })
       .then(response => {
           console.log(response)
@@ -98,7 +98,7 @@ export const setTasksSucces = (data) => ({
     .then(response => {
         console.log(response)
         dispatch(completeTaskSucces())
-        dispatch(getTasks(id, date, "complete"))
+        window.location.reload(false);
     })
     .catch(dispatch(completeTaskError("Could not complete task!")))
 }
@@ -123,6 +123,7 @@ export const deleteTask = (id) => (dispatch) => {
     .then(response => {
         console.log(response)
         dispatch(deleteTaskSucces())
+        window.location.reload(false);
     })
     .catch(dispatch(deleteTaskError("Could not delete task!")))
 }

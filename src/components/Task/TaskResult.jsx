@@ -11,6 +11,7 @@ list-style: none;
 `
 const Item = styled.li`
 width: 75%;
+min-width: 20em;
 border: 1px solid #cadecf;
 border-radius: 5px;
 overflow: hidden;
@@ -21,11 +22,12 @@ margin: 0.5em auto;
 text-align: center;`
 
 
+
 export default function TaskResult({tasks}) {
 
     return <>
         <Results>
-            {tasks.map(task => (
+        {tasks && tasks.map(task => (
                 <Item key={task.id} >
                     <Task task={task}/>
                 </Item>

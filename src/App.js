@@ -10,7 +10,6 @@ import './App.css';
 import Register from './components/LoginRegister/Register'
 import Login  from './components/LoginRegister/Login'
 import Home from './components/Home'
-import TaskLists from './components/Task/TaskLists'
 import Navigation from "./components/General/Navigation"
 import Profile from './components/Profile'
 import CalendarPage from './components/CalendarPage'
@@ -51,12 +50,6 @@ function App() {
             path="/addtask"
             render={() => {
                 return loggedIn ? <AddTask /> : <Login />
-            }}
-            /> 
-        <Route
-            path="/tasklists"
-            render={() => {
-                return loggedIn ? <TaskLists /> : <Login />
             }}
             /> 
         <Route

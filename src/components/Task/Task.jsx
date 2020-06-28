@@ -21,7 +21,7 @@ background-color: ${props => (props.bGColor)}`
 
 const Options = styled.div`
 overflow: hidden;
-border: 1px solid #136F63;`
+border: 1px solid white;`
 
 
 

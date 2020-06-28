@@ -28,6 +28,7 @@ export const postScore = (amount, date) => (dispatch) => {
     .then(response => {
         console.log(response)
         dispatch(postScoreSucces())
+        
     })
     .catch(dispatch(postScoreError(error => error.response.data)))
 }
@@ -36,9 +37,8 @@ export const postScoreStart = () => ({
     type: POST_SCORE_START
 })
 
-export const postScoreSucces = (data) => ({
+export const postScoreSucces = () => ({
     type: POST_SCORE_SUCCES,
-    payload: data
   })
   
   export const postScoreError= (message) => ({

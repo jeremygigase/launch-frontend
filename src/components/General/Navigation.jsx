@@ -1,7 +1,7 @@
 
 // NPM's
 import React , { useState } from "react";
-import {NavLink, Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import styled from "styled-components";
 
 
@@ -122,11 +122,8 @@ export default function Home() {
 
     return <>
     <Nav>
-        <StyledLink to="/home"><img src={logo} alt="launch logo loading" className="nav-logo"/> </StyledLink>
+        <StyledLink to="/home"><img src={logo} alt="launch logo" className="nav-logo"/> </StyledLink>
         <Menu>
-          <Item>
-          <StyledLink to="/tasklists">Tasklists </StyledLink>
-          </Item>
           <Item>
             <StyledLink to="/calendar">Calendar </StyledLink>
           </Item>
@@ -151,9 +148,6 @@ export default function Home() {
       </Nav>
       <Overlay open={toggle}>
         <OverlayMenu open={toggle}>
-            <Item>
-                <StyledLink onClick={clickHandler}  to="/tasklists">Tasklists </StyledLink>
-            </Item>
             <Item>
                 <StyledLink onClick={clickHandler} to="/calendar">Calendar </StyledLink>
             </Item>

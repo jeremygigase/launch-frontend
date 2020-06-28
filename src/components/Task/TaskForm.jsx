@@ -3,8 +3,43 @@ import React, {useState} from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import moment from 'moment';
 
+import styled from "styled-components";
+
 //Actions 
 import {addTask} from '../../actions/task'
+
+const StyledInput = styled.input`
+border: none;
+border-bottom: 1px solid #D3D3D3;
+background-color: #F5F7F8;
+width: 100%;
+height: 1.5em;
+margin-bottom: 0.5em;
+background: white;`;
+
+const StyledSelect = styled.select`
+border: none;
+border-bottom: 1px solid #D3D3D3;
+background-color: #F5F7F8;
+width: 100%;
+height: 1.5em;
+margin-bottom: 0.5em;
+background: white;`;
+
+const StyledCheckbox = styled.div`
+border: none;
+background-color: #F5F7F8;
+width: 100%;
+background: white;`;
+
+const StyledForm = styled.form`
+    text-align: left;
+    padding: 1em;
+    border: 1px solid black;
+    background: white;
+    line-height: 2.5em;
+    color: black;
+    font-size: 80%;`;
 
 
 export default function TaskForm() {
@@ -16,7 +51,7 @@ export default function TaskForm() {
     const [tocomplete, setTocomplete] = useState(date);
     const [weight, setWeight] = useState("Easy");
     const [send, setSend] = useState(false)
-    //const [public2, setPublic2] = useState("");
+    const [public2, setPublic2] = useState(false);
 
     const loading = useSelector(state => state.user.login.loading);
     const dispatch = useDispatch();
@@ -25,9 +60,9 @@ export default function TaskForm() {
         e.preventDefault();
         setSubmitted(true);
 
-        console.log(text,  tocomplete, weight)
+        //console.log(text,  tocomplete, weight, public2)
         if (text  && tocomplete && weight) {
-            dispatch(addTask(text,  tocomplete, weight));
+            dispatch(addTask(text,  tocomplete, weight, public2));
             setSubmitted(false);
             setSend(true)
             setText("")
@@ -36,62 +71,54 @@ export default function TaskForm() {
         }
         
     }
+    console.log(public2)
 
-    return <div>
 
-        <form className="login-form" onSubmit={submitHandler}>
+    return <StyledForm onSubmit={submitHandler}>
         {send ? 
         <div>
             Want to add another task?
         </div> : ""}
-                <div className="">
+
                     <label htmlFor="text">Text</label>
-                    <input type="text" id="text" name="text" value={text} onChange={(e)=>{
+                    <StyledInput type="text" id="text" name="text" value={text} onChange={(e)=>{
                             setText(e.target.value)
                         }}  required />
                         {submitted && !text &&
                             <div className="invalid-feedback">Text is required</div>
                         }
-                </div>
-                <div className="">
-                    <label htmlFor="tocomplete">To Complete</label>
-                    <input type="date" id="tocomplete" name="tocomplete" value={tocomplete} onChange={(e)=>{
+
+
+                    <label htmlFor="tocomplete">Date To Complete The Task</label>
+                    <StyledInput type="date" id="tocomplete" name="tocomplete" value={tocomplete} onChange={(e)=>{
                             setTocomplete(e.target.value)
                         }} 
                         required />
                         {submitted && !tocomplete &&
                             <div className="invalid-feedback">Date is required</div>
                         }
-                </div>
-                <div className="">
+ 
                     <label htmlFor="weight">Weight</label>
-                    <select onChange={(e)=>{ setWeight(e.target.value)}} id="weight" name="weight" required>
+                    <StyledSelect onChange={(e)=>{ setWeight(e.target.value)}} id="weight" name="weight" required>
                         <option value="Easy">Easy</option>
                         <option value="Medium">Medium</option>
                         <option value="Hard">Hard</option>
-                    </select>
+                    </StyledSelect>
                         {submitted && !tocomplete &&
                             <div className="invalid-feedback">Weight is required</div>
                         }
-                </div>
-                {/*<div className="">
+                    <StyledCheckbox>
                     <label htmlFor="public2">Public</label>
-                    <input type="text" id="public2" name="public2" value={public2} onChange={(e)=>{
-                            setPublic2(e.target.value)
+                    <input type="checkbox" id="public2" name="public2" value={public2} onClick={(e)=>{
+                            setPublic2(!public2)
                         }} 
-                        required />
-                    <select id="public2" name="public2" value={public2} onChange={(e)=>{
-                            setPublic2(e.target.value)
-                        }} 
-                        required>
-                        <option value="true">Yes</option>
-                        <option value="false">No</option>
-                    </select>
+                         />
+
                         {submitted && !public2 &&
                             <div className="invalid-feedback">Public is required</div>
                         }
-                </div>*/}
+                    </StyledCheckbox>
+        
                 <input type="submit" value="Add" className="button" disabled={loading}/>
-            </form>
-    </div>;
+            </StyledForm>;
 }

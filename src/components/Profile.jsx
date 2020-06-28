@@ -17,17 +17,31 @@ import FriendRequests from "./Friend/FriendRequests";
 const Main = styled.main`
 color:black;
 margin: 0 auto;
-width: 50%;
-text-align: center;`;
+width: 75%;
+text-align: center;
+display: grid;
+grid-template-columns: auto auto;
+grid-template-rows: auto;
+text-align: center;
+@media (max-width: 768px) {
+    grid-template-columns: auto;
+  }`;
+
+const Column1= styled.div`
+grid-column: 1;`;
+
+const Column2= styled.div`
+grid-column: 2;
+@media (max-width: 768px) {
+    grid-column: 1;
+  }`;
+
 
 export default function Profile() {
 
     //const [requestConfirmation, setRequestConfirmation] = useState(false)
     const user = useSelector(state => state.user.user)
     const {username, id} = user
-
-
-    
 
     const date = moment().format("YYYY-MM-DD");
 
@@ -49,17 +63,18 @@ export default function Profile() {
     
 
     return <Main>
-        <div>
+        <Column1>
         <h2>{username}</h2>
         <ScoreBoard/>
-        <h2>Completed tasks today</h2>
-        <TaskList {...props}/>
-        </div>
-        <div>
         <h2>Friend requests</h2>
         { loading && <LogoLoad />  }
         {
         friends && <FriendRequests friends={friends}/>}
-        </div>
+        </Column1>
+        <Column2>
+        <h2>Completed tasks today</h2>
+        <TaskList {...props}/>
+        </Column2>
+
         </Main>;
 }

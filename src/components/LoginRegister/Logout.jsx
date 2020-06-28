@@ -10,6 +10,7 @@ import {userLogout} from '../../actions/user'
 const StyledLink = styled(Link)`
     text-decoration: none;
     color: white;
+    margin-left: 0.5em;
 
     &:hover {
         text-decoration: underline;
