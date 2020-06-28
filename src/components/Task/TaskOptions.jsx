@@ -1,12 +1,12 @@
 // NPM'S
-import React, { useState} from "react";
+import React from "react";
 import styled from "styled-components";
 import {useDispatch} from 'react-redux';
 import moment from 'moment';
 
 
 // Actions
-import {completeTask, deleteTask, getTasks} from '../../actions/task'
+import {completeTask, deleteTask} from '../../actions/task'
 import {postScore} from '../../actions/score'
 
 
@@ -22,7 +22,7 @@ float: left;`
 
 export default function TaskOptions({props}) {
     const dispatch = useDispatch();
-    const date = useState(moment().format("YYYY-MM-DD"));
+    const date = moment().format("YYYY-MM-DD")
 
     const getWeight = (number) => {
         const weights = {
@@ -35,14 +35,21 @@ export default function TaskOptions({props}) {
 
 
     const completeHandler = (id, date, weight) => {
-        dispatch(completeTask(id, date, getWeight(weight)))
+        console.log(id, date, weight)
+        dispatch(completeTask(id, date))
         dispatch(postScore(weight, date))
-        dispatch(getTasks(id, date, "incomplete"))
+        //dispatch(getTasks(id, date, "incomplete"))
+      };
+
+      const deleteHandler = (id) => {
+        console.log(id)
+        dispatch(deleteTask(props.id))
+        //dispatch(getTasks(id, date, "incomplete"))
       };
 
     return <>
-            <Button type="button" value="Complete" onClick={() => completeHandler (props.id, date, getWeight(props.weight))}/>
-            <Button type="button" value="Delete" onClick={() => dispatch(deleteTask(props))}/>
+            <Button type="button" value="Complete" onClick={() => completeHandler(props.id, date, getWeight(props.weight))}/>
+            <Button type="button" value="Delete" onClick={() => deleteHandler(props.id)}/>
     </>
 
 ;

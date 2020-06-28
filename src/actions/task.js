@@ -93,7 +93,7 @@ export const setTasksSucces = (data) => ({
     .put(`${process.env.REACT_APP_API}/tasks/${id}`,
     {
         "status": "complete",
-        "datecompleted": date,
+        "datecompleted": date
     })
     .then(response => {
         console.log(response)

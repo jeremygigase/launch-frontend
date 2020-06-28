@@ -6,10 +6,12 @@ import styled from 'styled-components'
 // Components
 import TaskList from './Task/TaskList'
 
-const CalendarMain = styled.main`
+
+const Main = styled.main`
 color:black;
 margin: 0 auto;
-width: 50%;`;
+width: 50%;
+text-align: center;`;
 
 export default function CalendarPage() {
 
@@ -41,12 +43,12 @@ export default function CalendarPage() {
         setDate(date);
       };
       
-    return <CalendarMain>
+    return <Main>
         <div>
             <Calendar  className={['calendar']} onChange={onChange} value={date} />  
         </div>
         <div>
             <TaskList {...props}/> 
         </div>               
-    </CalendarMain>;
+    </Main>;
 }

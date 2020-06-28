@@ -17,7 +17,8 @@ overflow: hidden;
 font-weight: 600;
 font-size: 0.9em;
 box-shadow: 0.2em 0.2em #cadecf;
-margin: 0.5em auto;`
+margin: 0.5em auto;
+text-align: center;`
 
 
 export default function TaskResult({tasks}) {

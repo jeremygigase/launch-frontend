@@ -1,7 +1,7 @@
 
 // NPM's
 import React , { useState } from "react";
-import {Link} from 'react-router-dom'
+import {NavLink, Link} from 'react-router-dom'
 import styled from "styled-components";
 
 
@@ -11,7 +11,7 @@ import Logout from "../LoginRegister/Logout"
 //Assets
 import logo from '../../images/logo.png'
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(NavLink)`
     text-decoration: none;
     color: white;
     margin: 0 0.5em;
@@ -19,6 +19,10 @@ const StyledLink = styled(Link)`
    &:hover {
         text-decoration: none;
         color: #E71D36;
+    }
+    &.active {
+      color: #E71D36;
+      text-decoration: underline;
     }
 `;
 

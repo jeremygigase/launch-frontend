@@ -23,13 +23,13 @@ export const postScore = (amount, date) => (dispatch) => {
     .post(`${process.env.REACT_APP_API}/scores`,
     {
         "amount": amount,
-        "date": date,
+        "date": date
     })
     .then(response => {
         console.log(response)
         dispatch(postScoreSucces())
     })
-    .catch(dispatch(postScoreError("Could not post score!")))
+    .catch(dispatch(postScoreError(error => error.response.data)))
 }
 
 export const postScoreStart = () => ({
