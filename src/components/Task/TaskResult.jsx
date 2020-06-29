@@ -3,10 +3,12 @@ import React from "react";
 
 // Components
 import Task from './Task'
-//To Do Change cursor to pointer
+
 
 // Styling
 import {Results, Item} from '../StyledComponents'
+
+//To Do Change cursor to pointer
 
 export default function TaskResult({tasks}) {
 

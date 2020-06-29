@@ -86,7 +86,9 @@ export const loginUser = (username,password) => (dispatch) => {
         dispatch(setSuccesLogin(response.data.token))
         console.log(response)
     })
-    .catch( dispatch(setErrorLogin("Login Error")) )
+    .catch( error => dispatch(setErrorLogin(error.response.data.message))
+            //console.log(error.response)
+             )
 }
 
 export const setUser = (username) => (dispatch) => {
@@ -98,7 +100,7 @@ export const setUser = (username) => (dispatch) => {
         dispatch(setUserSucces(response.data['hydra:member'][0]))
     })
     .catch( 
-        dispatch(setErrorLogin("Login"))
+        dispatch(setErrorLogin("Login Error"))
         )
 }
 

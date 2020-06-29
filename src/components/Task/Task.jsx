@@ -1,34 +1,21 @@
 // NPM'S
 import React, {useState} from "react";
-import styled from "styled-components";
-
 
 // Components 
 import TaskOptions from './TaskOptions'
 
-const Description = styled.a`
-padding: 1em 0;
-width: 80%;
-float: left;
-background-color: white;`
+// Styling
+import {Description, Options, TaskWeight} from '../StyledComponents'
 
-const Weight = styled.div`
-width: 20%;
-float: left;
-padding: 1em 0;
-color: white;
-background-color: ${props => (props.bGColor)}`
-
-const Options = styled.div`
-overflow: hidden;
-border: 1px solid white;`
-
-
+// To Do Edit Task Options
 
 export default function Task({task}) {
 
     const [options, setOptions] = useState(false)
 
+    // Gives back the amount of points a task is worth
+    // Could probably give the value already when you choose
+    // In select
     const getWeight = (number) => {
         const weights = {
             "Easy": 25,
@@ -38,6 +25,7 @@ export default function Task({task}) {
         return weights[number];
     }
 
+    //Gives back the right colors for the difficulty of the task
     const getBGColor = (color) => {
         const weights = {
             "Easy": "#17B890",
@@ -47,6 +35,7 @@ export default function Task({task}) {
         return weights[color];
     }
 
+    // If task isn't completed yet it gets options otherwise none like in the profile page
     let optionsComponent = ""
 
     if(task.status === "incomplete" ){
@@ -61,9 +50,9 @@ export default function Task({task}) {
             setOptions(!options)}>
             {task.text} 
         </Description>
-        <Weight bGColor={getBGColor(task.weight)}>
+        <TaskWeight bGColor={getBGColor(task.weight)}>
             {getWeight(task.weight)}
-        </Weight>
+        </TaskWeight>
         {options ? optionsComponent : ""}
     </>
 

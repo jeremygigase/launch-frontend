@@ -1,9 +1,5 @@
-
 // NPM's
 import React , { useState } from "react";
-import {NavLink} from 'react-router-dom'
-import styled from "styled-components";
-
 
 // Components
 import Logout from "../LoginRegister/Logout"
@@ -18,6 +14,7 @@ export default function Home() {
 
     const [toggle, toggleNav] = useState(false);
 
+    // Closes overlay menu after clicking link 
     const clickHandler = () => {
       toggleNav(!toggle)
   }

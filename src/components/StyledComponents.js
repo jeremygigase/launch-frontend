@@ -61,11 +61,33 @@ font-size: 80%; `;
 
 export const BGReg = styled.div`
 background:#041B15;
-padding-bottom: 20em; `;
+padding-bottom: 24em; `;
 
 export const BGLog = styled.div`
 background:#041B15;
 padding-bottom: 34em; `;
+/* Task*/ 
+
+export const Options = styled.div`
+overflow: hidden;
+border: 1px solid white;`;
+
+export const TaskWeight = styled.div`
+width: 20%;
+float: left;
+padding: 1em 0;
+color: white;
+background-color: ${props => (props.bGColor)}`;
+
+export const Confirmation= styled.div`
+    text-align: center;
+    padding: 1em;
+    border: 1px solid black;
+    background: #F5F7F8;
+    line-height: 2.5em;
+    color: black;
+    font-size: 80%;`;
+
 /* AddTask*/
 
 export const StyledInput = styled.input`
@@ -149,7 +171,7 @@ width: 20%;
 float: left;
 padding: 1em 0;
 color: white;
-background-color: black;`;
+background-color: #041B15;`;
 
 export const Request = styled.input`
 text-align: center;
@@ -161,6 +183,18 @@ height: 3em;
 border-radius: 25px;
 color: white;
 &:hover {
+    background: #E71D36;
+  }`;
+
+export const StyledShowTasksInput = styled.input`
+  border: none;
+  border-bottom: 1px solid #041B15;
+  background-color: #041B15;
+  color: white;
+  width: 100%;
+  height: 1.5em;
+  margin-bottom: 0.5em;
+  &:hover {
     background: #E71D36;
   }`;
 

@@ -4,7 +4,6 @@ import React from "react";
 // Components
 import Friend from './Friend'
 
-
 export default function FriendsResult({friends}) {
 
     return <ul>

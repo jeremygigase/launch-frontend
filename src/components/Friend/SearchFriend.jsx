@@ -1,7 +1,7 @@
 // NPM's
 import React, {useState} from "react";
 
-//
+// helpers
 import configJWT from '../../helpers/configJWT'
 
 // Components
@@ -15,12 +15,13 @@ import LogoLoad from "../General/LogoLoad"
 
 export default function SearchFriend() {
 
-
     const [search, setSearch] = useState("")
     const [submitted, setSubmitted] = useState(false);
     const [foundFriend, setFoundFriend] = useState("")
     const [loading, setLoading] = useState(false)
 
+    // After submittung sending username to find a user
+    // returns user or a nobody found
     const submitHandler = (e) => {
             
             e.preventDefault();

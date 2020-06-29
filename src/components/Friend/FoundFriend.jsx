@@ -8,6 +8,15 @@ import {postRequest} from '../../actions/friend'
 //Styling
 import {Item2, Description, Request} from '../StyledComponents'
 
+// Friend Component after searching an other user
+// To Do Checking if they're already friends or send request
+
+    /*checkedFriends && checkedFriends
+                        .filter(friend => friend.sender.id === id)
+                        .filter(friend => friend.receiver.id === foundFriend.id)
+                        .length > 0 || 
+                        </div>*/
+
 export default function FoundFriend({friend}) {
 
     const [clicked, setClicked] = useState(false);
@@ -18,12 +27,6 @@ export default function FoundFriend({friend}) {
         dispatch(postRequest(friend.id, "send"))
         setClicked(true)
     }
-
-    /*checkedFriends && checkedFriends
-                        .filter(friend => friend.sender.id === id)
-                        .filter(friend => friend.receiver.id === foundFriend.id)
-                        .length > 0 || 
-                        </div>*/
 
     return <>
     <Item2 key={friend.id}> 

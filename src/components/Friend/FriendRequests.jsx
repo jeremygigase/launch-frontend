@@ -12,8 +12,9 @@ export default function FriendRequests({friends}) {
 
     return <ul>
     {
-        friends.filter(friend => friend.receiver.id  === id).map(friend => <FriendRequest key={friend.id} friend={friend} />
-)
-}
+        friends
+        .filter(friend => friend.receiver.id  === id)
+        .map(friend => <FriendRequest key={friend.id} friend={friend} />)
+    }
     </ul>
 }

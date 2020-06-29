@@ -7,11 +7,11 @@ import TaskList from './Task/TaskList'
 // Styling
 import {Main, Column1, Column2, StyledCalendar, Title} from './StyledComponents'
 
-
 export default function CalendarPage() {
 
     const [date, setDate] = useState(new Date())
 
+    // Changes JS Date object to date used in database
     const formatDate = date => {
         var d = new Date(date),
             month = '' + (d.getMonth() + 1),
@@ -26,6 +26,7 @@ export default function CalendarPage() {
         return [year, month, day].join('-');
     }
 
+    //Send 2 things through as props
     let props = {
         date: formatDate(date),
         status:"incomplete"

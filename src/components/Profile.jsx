@@ -17,6 +17,10 @@ import {Main, Column1, Column2, Title} from './StyledComponents'
 // Assets
 import LogoLoad from "./General/LogoLoad"
 
+// To Do add Graph with previous score
+// Profile Picture, Backend Ready
+// Change Password, Backend Ready
+
 export default function Profile() {
 
     //const [requestConfirmation, setRequestConfirmation] = useState(false)
@@ -32,29 +36,31 @@ export default function Profile() {
     }, [dispatch, id])
     const friends = useSelector(state => state.friend.friends.data)
     const loading = useSelector(state => state.friend.friends.loading)
-    //console.log(friends)
-    console.log(loading)
 
     let props = {
         date: date,
         status:"complete"
         }
 
-    
-
     return <Main>
         <Column1>
-        <Title>{username}</Title>
-        <ScoreBoard/>
-        <Title>Friend requests</Title>
-        { loading && <LogoLoad />  }
-        {
-        friends && <FriendRequests friends={friends}/>}
+            <Title>
+                {username}
+            </Title>
+            <ScoreBoard/>
+            <Title>
+                Friend requests
+            </Title>
+            { 
+                loading && <LogoLoad />  
+            }
+            {
+                friends && <FriendRequests friends={friends}/>
+            }
         </Column1>
         <Column2>
-        <Title>Completed tasks today</Title>
-        <TaskList {...props}/>
+            <Title>Completed tasks today</Title>
+            <TaskList {...props}/>
         </Column2>
-
-        </Main>;
+    </Main>;
 }

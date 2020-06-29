@@ -9,6 +9,7 @@ import {addTask} from '../../actions/task'
 // Styling
 import {StyledInput, StyledSelect, StyledCheckbox, StyledForm} from '../StyledComponents'
 
+// To Do returning Tasks
 
 export default function TaskForm() {
 
@@ -28,7 +29,6 @@ export default function TaskForm() {
         e.preventDefault();
         setSubmitted(true);
 
-        //console.log(text,  tocomplete, weight, public2)
         if (text  && tocomplete && weight) {
             dispatch(addTask(text,  tocomplete, weight, public2));
             setSubmitted(false);
@@ -39,9 +39,9 @@ export default function TaskForm() {
         }
         
     }
-    console.log(public2)
 
-
+    // Onca task is added a div appears after all the inputs are cleared 
+    //if the user wants to create another task
     return <StyledForm onSubmit={submitHandler}>
         {send ? 
         <div>

@@ -9,13 +9,14 @@ import {loginUser} from '../../actions/user'
 // Styling
 import {RegLogForm, AddMain, StyledInput} from '../StyledComponents'
 
+// To Do better error handling
+
 export default function LoginForm() {
     
     const [submitted, setSubmitted] = useState(false);
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("");
     //lastlogin needs to be send
-
 
     const error = useSelector(state => state.user.login.error)
 
@@ -33,8 +34,7 @@ export default function LoginForm() {
     return (
         <>
             <AddMain>
-            <RegLogForm className="login-form" onSubmit={submitHandler}>
-                <div className="">
+            <RegLogForm onSubmit={submitHandler}>
                     <label htmlFor="username">Username</label>
                     <StyledInput type="text" id="username" name="username" value={username} onChange={(e)=>{
                             setUsername(e.target.value)
@@ -42,8 +42,6 @@ export default function LoginForm() {
                         {submitted && !username &&
                             <div className="invalid-feedback">Username is required</div>
                         }
-                </div>
-                <div className="">
                     <label htmlFor="password">Password</label>
                     <StyledInput type="password" id="password" name="password" value={password} autoComplete="on" onChange={(e)=>{
                             setPassword(e.target.value)
@@ -52,7 +50,6 @@ export default function LoginForm() {
                         {submitted && !password &&
                             <div className="invalid-feedback">Password is required</div>
                         }
-                </div>
                 <input type="submit" value="Login" className="button" />
                 <Link to="/register" className="link-register">Not registered yet?</Link>
                 {submitted && error && error.bool === true &&

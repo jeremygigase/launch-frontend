@@ -9,7 +9,7 @@ import ScoreBoard from "./Score/ScoreBoard";
 //Styling
 import {Main, Column1, Column2, Title} from './StyledComponents'
 
-
+// To Do Add yesterdays Score
 
 export default function Home() {
 

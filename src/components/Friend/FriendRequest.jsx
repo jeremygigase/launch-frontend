@@ -1,7 +1,9 @@
 // NPM's
 import React, {useState} from "react";
 import {useDispatch } from 'react-redux';
-import moment from 'moment'
+
+// helpers
+import calculateScore from '../../helpers/calculateScore'
 
 //Actions
 import {acceptRequest, denyRequest} from '../../actions/friend'
@@ -9,47 +11,30 @@ import {acceptRequest, denyRequest} from '../../actions/friend'
 //Styling
 import {Item, Description, Weight, Request} from '../StyledComponents'
 
-export default function FoundFriend({friend}) {
+//Friend Request Component used in Profile Page
+
+export default function FriendRequest({friend}) {
 
     const [clicked, setClicked] = useState(false);
 
     const dispatch = useDispatch();
 
-    const date = moment().format("YYYY-MM-DD");
-
-    const calculateScore = (scores) => {
-        let totalScore = 0
-        scores && scores
-        .filter(score => score.date.slice(0,10) === date)
-        .map(score => totalScore += score.amount)
-    
-        return totalScore
-    }
-
-
+    // Accepting friend request sends a put and post request through the user reducer
     const clickHandlerAccept = (id, friend) => {
         dispatch(acceptRequest(id, friend))
         setClicked(true)
     }
 
+    // Denying friend request sends a put and post request through the user reducer
     const clickHandlerDeny = (id, friend) => {
         dispatch(denyRequest(id, friend))
         setClicked(true)
         
     }
 
-    /*checkedFriends && checkedFriends
-                        .filter(friend => friend.sender.id === id)
-                        .filter(friend => friend.receiver.id === foundFriend.id)
-                        .length > 0 || 
-                        </div>*/
-
     return <>
     
     <Item key={friend.id}> 
-            {/*<div>
-                <img />
-            </div>*/}
             <Description>
             <div>
                 {friend.sender.username}

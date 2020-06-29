@@ -10,8 +10,9 @@ import {Title, AddMain} from './StyledComponents'
 export default function AddTask() {
 
     return <AddMain>
-        <Title>Add Task</Title>
-            <TaskForm />
-            
-        </AddMain>;
+        <Title>
+            Add Task
+        </Title>
+        <TaskForm />  
+    </AddMain>;
 }
