@@ -6,6 +6,9 @@ import {Link} from 'react-router-dom'
 //Actions 
 import {loginUser} from '../../actions/user'
 
+// Styling
+import {RegLogForm, AddMain, StyledInput} from '../StyledComponents'
+
 export default function LoginForm() {
     
     const [submitted, setSubmitted] = useState(false);
@@ -29,11 +32,11 @@ export default function LoginForm() {
     
     return (
         <>
-        <main className="login">
-            <form className="login-form" onSubmit={submitHandler}>
+            <AddMain>
+            <RegLogForm className="login-form" onSubmit={submitHandler}>
                 <div className="">
                     <label htmlFor="username">Username</label>
-                    <input type="text" id="username" name="username" value={username} onChange={(e)=>{
+                    <StyledInput type="text" id="username" name="username" value={username} onChange={(e)=>{
                             setUsername(e.target.value)
                         }}  required />
                         {submitted && !username &&
@@ -42,7 +45,7 @@ export default function LoginForm() {
                 </div>
                 <div className="">
                     <label htmlFor="password">Password</label>
-                    <input type="password" id="password" name="password" value={password} autoComplete="on" onChange={(e)=>{
+                    <StyledInput type="password" id="password" name="password" value={password} autoComplete="on" onChange={(e)=>{
                             setPassword(e.target.value)
                         }} 
                         pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required />
@@ -56,8 +59,7 @@ export default function LoginForm() {
                 <div>
                     {error.message}
                 </div>}
-                
-            </form>
-        </main>
+            </RegLogForm>
+            </AddMain>
     </>);
 }

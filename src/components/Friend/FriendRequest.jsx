@@ -1,49 +1,13 @@
+// NPM's
 import React, {useState} from "react";
-import styled from "styled-components";
-
 import {useDispatch } from 'react-redux';
 import moment from 'moment'
 
+//Actions
 import {acceptRequest, denyRequest} from '../../actions/friend'
 
-const Item = styled.div`
-width: 90%;
-border: 1px solid #cadecf;
-border-radius: 5px;
-overflow: hidden;
-font-weight: 600;
-font-size: 0.9em;
-box-shadow: 0.2em 0.2em #cadecf;
-margin: 1em 0 1em 1em;`
-
-const Description = styled.a`
-padding: 1em 0;
-width: 80%;
-float: left;
-background-color: white;`
-
-const Weight = styled.div`
-width: 20%;
-float: left;
-padding: 1em 0;
-color: white;
-background-color: black;`
-
-const Request = styled.input`
-text-align: center;
-background: black;
-margin-top: 1em;
-padding-top: 2px;
-width: 9em;
-height: 3em;
-border-radius: 25px;
-color: white;
-
-&:hover {
-    background: #E71D36;
-  }`
-
-
+//Styling
+import {Item, Description, Weight, Request} from '../StyledComponents'
 
 export default function FoundFriend({friend}) {
 

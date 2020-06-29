@@ -54,7 +54,7 @@ export const registerUser = (username, email, firstName, lastName, password, bir
     })
     .catch(error =>  
         //console.log(error.response)
-        dispatch(setErrorRegister(error.response.data.error))
+        dispatch(setErrorRegister("Register Error"))
     )
 }
 
@@ -86,7 +86,7 @@ export const loginUser = (username,password) => (dispatch) => {
         dispatch(setSuccesLogin(response.data.token))
         console.log(response)
     })
-    .catch( error => dispatch(setErrorLogin(error.response.data.message)) )
+    .catch( dispatch(setErrorLogin("Login Error")) )
 }
 
 export const setUser = (username) => (dispatch) => {

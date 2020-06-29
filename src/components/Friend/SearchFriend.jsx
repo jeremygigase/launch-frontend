@@ -1,36 +1,17 @@
+// NPM's
 import React, {useState} from "react";
-import styled from 'styled-components'
 
+//
 import configJWT from '../../helpers/configJWT'
+
+// Components
 import FoundFriend from './FoundFriend'
 
+// Styling
+import {SearchForm, SearchInput, Nobody, SmallTitle} from '../StyledComponents'
+
+// Assets
 import LogoLoad from "../General/LogoLoad"
-
-const SearchForm = styled.form`
-text-align: center;
-line-height: 2.5em;
-color: black;
-width: 50%;
-margin: 0 auto;`
-
-const SearchInput = styled.input`
-border: none;
-border-bottom: 1px solid #D3D3D3;
-background-color: #F5F7F8;
-width: 100%;
-height: 1.5em;
-margin-bottom: 0.5em;
-background: white;`
-
-const Nobody = styled.div`
-width: 90%;
-border: 1px solid #cadecf;
-border-radius: 5px;
-overflow: hidden;
-font-weight: 600;
-font-size: 0.9em;
-box-shadow: 0.2em 0.2em #cadecf;
-margin: 1em 0 1em 2em;`
 
 export default function SearchFriend() {
 
@@ -53,8 +34,6 @@ export default function SearchFriend() {
                 .then(response => {
                 console.log(response.data['hydra:member'])
                 setFoundFriend(response.data['hydra:member'][0])
-            
-                
             })
             .catch(error =>  console.log(error))
                 setSubmitted(false);
@@ -66,7 +45,7 @@ export default function SearchFriend() {
     return <div>
     <SearchForm onSubmit = {submitHandler}> 
             <div>
-                <label htmlFor="search">Search Friend</label>
+                <SmallTitle htmlFor="search">Search Friend</SmallTitle>
                 <SearchInput type="text" id="search" name="search" value={search} onChange={(e)=>{
                         setSearch(e.target.value)
                         }} 

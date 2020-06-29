@@ -1,41 +1,21 @@
+// NPM's
 import React, {useEffect} from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import ScoreBoard from "./Score/ScoreBoard";
-import styled from "styled-components";
-
 import moment from 'moment';
-
-import LogoLoad from './General/LogoLoad'
 
 // Actions 
 import {getFriends} from '../actions/friend'
 
+// Components
 import TaskList from "./Task/TaskList";
 import FriendRequests from "./Friend/FriendRequests";
 
+// Styling
+import {Main, Column1, Column2, Title} from './StyledComponents'
 
-const Main = styled.main`
-color:black;
-margin: 0 auto;
-width: 75%;
-text-align: center;
-display: grid;
-grid-template-columns: auto auto;
-grid-template-rows: auto;
-text-align: center;
-@media (max-width: 768px) {
-    grid-template-columns: auto;
-  }`;
-
-const Column1= styled.div`
-grid-column: 1;`;
-
-const Column2= styled.div`
-grid-column: 2;
-@media (max-width: 768px) {
-    grid-column: 1;
-  }`;
-
+// Assets
+import LogoLoad from "./General/LogoLoad"
 
 export default function Profile() {
 
@@ -64,15 +44,15 @@ export default function Profile() {
 
     return <Main>
         <Column1>
-        <h2>{username}</h2>
+        <Title>{username}</Title>
         <ScoreBoard/>
-        <h2>Friend requests</h2>
+        <Title>Friend requests</Title>
         { loading && <LogoLoad />  }
         {
         friends && <FriendRequests friends={friends}/>}
         </Column1>
         <Column2>
-        <h2>Completed tasks today</h2>
+        <Title>Completed tasks today</Title>
         <TaskList {...props}/>
         </Column2>
 

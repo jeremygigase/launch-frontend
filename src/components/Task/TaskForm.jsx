@@ -3,43 +3,11 @@ import React, {useState} from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import moment from 'moment';
 
-import styled from "styled-components";
-
 //Actions 
 import {addTask} from '../../actions/task'
 
-const StyledInput = styled.input`
-border: none;
-border-bottom: 1px solid #D3D3D3;
-background-color: #F5F7F8;
-width: 100%;
-height: 1.5em;
-margin-bottom: 0.5em;
-background: white;`;
-
-const StyledSelect = styled.select`
-border: none;
-border-bottom: 1px solid #D3D3D3;
-background-color: #F5F7F8;
-width: 100%;
-height: 1.5em;
-margin-bottom: 0.5em;
-background: white;`;
-
-const StyledCheckbox = styled.div`
-border: none;
-background-color: #F5F7F8;
-width: 100%;
-background: white;`;
-
-const StyledForm = styled.form`
-    text-align: left;
-    padding: 1em;
-    border: 1px solid black;
-    background: white;
-    line-height: 2.5em;
-    color: black;
-    font-size: 80%;`;
+// Styling
+import {StyledInput, StyledSelect, StyledCheckbox, StyledForm} from '../StyledComponents'
 
 
 export default function TaskForm() {

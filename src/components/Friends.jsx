@@ -1,20 +1,19 @@
+// NPM's
 import React, {useEffect} from "react";
 import { useSelector, useDispatch } from 'react-redux';
 
-import styled from "styled-components";
-
-import FriendsResult from './Friend/FriendsResult'
-import SearchFriend from './Friend/SearchFriend'
-
-import LogoLoad from "./General/LogoLoad"
 // Actions
 import {getFriends} from '../actions/friend'
 
-const FriendsMain = styled.main`
-color:black;
-margin: 0 auto;
-width: 50%;
-text-align: center;`;
+// Components
+import FriendsResult from './Friend/FriendsResult'
+import SearchFriend from './Friend/SearchFriend'
+
+// Styling
+import {Main, Column1, Column2, Title} from './StyledComponents'
+
+// Assets
+import LogoLoad from "./General/LogoLoad"
 
 export default function Friends() {
 
@@ -30,14 +29,18 @@ export default function Friends() {
 
     console.log(loading)
     
-    return <FriendsMain>
+    return <Main>
+        <Column1>
+        <Title>Friends</Title>
         {
             loading && <LogoLoad />
         }
         {
             friends && <FriendsResult friends={friends}/>
         }
-    
-        <SearchFriend />
-    </FriendsMain>;
+        </Column1>
+        <Column2>
+            <SearchFriend />
+        </Column2>
+    </Main>;
 }

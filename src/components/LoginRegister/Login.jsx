@@ -5,12 +5,15 @@ import React from "react";
 import HeaderLogReg from './HeaderLogReg'
 import LoginForm from './LoginForm'
 
+// Styling
+import {BGLog} from '../StyledComponents'
+
 export default function Login() {
     const header = "Launch your productivity!"
 
     return (
-    <div className="log-reg-container">
+    <BGLog>
         <HeaderLogReg props={header}/>
             <LoginForm />
-    </div>);
+    </BGLog>);
 }

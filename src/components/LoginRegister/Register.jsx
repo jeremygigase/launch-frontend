@@ -5,13 +5,16 @@ import React from "react";
 import HeaderLogReg from './HeaderLogReg'
 import RegisterForm from './RegisterForm'
 
+// Styling
+import {BGReg} from '../StyledComponents'
+
 export default function Register() {
 
     const header = "Ready to launch your productivity?"
     return (
-    <div className="log-reg-container">
+    <BGReg>
         <HeaderLogReg props={header} />
             <RegisterForm />
-    </div>
+    </BGReg>
     );
 }

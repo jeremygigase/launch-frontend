@@ -1,18 +1,14 @@
 // NPM's
 import React from "react";
 import moment from 'moment';
-import styled from "styled-components";
-
 
 // Components
 import TaskList from './Task/TaskList'
 import ScoreBoard from "./Score/ScoreBoard";
 
+//Styling
+import {Main, Column1, Column2, Title} from './StyledComponents'
 
-const Main = styled.main `
-margin: 0 auto;
-text-align: center;
-`;
 
 
 export default function Home() {
@@ -26,11 +22,14 @@ export default function Home() {
 
     return <>
     <Main>
-        <div>
+        <Column1>
+            <Title>Home</Title>
             <ScoreBoard date={date}/>
-            <h2>Today's Tasks</h2>
+        </Column1>
+        <Column2> 
+            <Title>Today's Tasks</Title>
             <TaskList {...props}/>
-        </div>
+        </Column2>  
     </Main>
     </>;
 }

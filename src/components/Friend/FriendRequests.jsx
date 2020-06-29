@@ -1,8 +1,8 @@
+// NPM's
 import React from "react";
-
-
 import { useSelector } from 'react-redux';
 
+// Components
 import FriendRequest from './FriendRequest'
 
 export default function FriendRequests({friends}) {
@@ -13,8 +13,6 @@ export default function FriendRequests({friends}) {
     return <ul>
     {
         friends.filter(friend => friend.receiver.id  === id).map(friend => <FriendRequest key={friend.id} friend={friend} />
-
-    
 )
 }
     </ul>

@@ -3,7 +3,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import {Route, Switch, Redirect} from 'react-router-dom'
 
-// CSS
+// Styling
 import './App.css';
 
 // Components
@@ -14,11 +14,8 @@ import Navigation from "./components/General/Navigation"
 import Profile from './components/Profile'
 import CalendarPage from './components/CalendarPage'
 import Friends from './components/Friends'
-import AddTask from './components/Task/AddTask'
+import AddTask from './components/AddTask'
 import Footer from './components/General/Footer'
-import FooterLogReg from './components/LoginRegister/FooterLogReg'
-
-
 
 function App() {
   const loggedIn = useSelector(state => state.user.loggedIn);
@@ -71,7 +68,7 @@ function App() {
             }}
             /> 
       </Switch>
-      {loggedIn ? <Footer /> : <FooterLogReg />}
+    <Footer />
       </>
   );
 }

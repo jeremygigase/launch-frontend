@@ -1,11 +1,14 @@
 import React from "react";
 
+// Styling
+import {StyledFooter} from '../StyledComponents'
+
 export default function Footer() {
 
     return (
         <>
-        <footer className="main">
+        <StyledFooter>
             <p>Launch © 2020</p>
-        </footer>
+        </StyledFooter>
     </>);
 }

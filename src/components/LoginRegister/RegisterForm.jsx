@@ -6,6 +6,8 @@ import {Link} from 'react-router-dom'
 // Actions
 import {registerUser} from '../../actions/user'
 
+// Styling
+import {RegLogForm, AddMain, StyledInput} from '../StyledComponents'
 //To Do add loading asset
 
 export default function RegisterForm() {
@@ -37,17 +39,17 @@ export default function RegisterForm() {
 
     return (
     <>
-        <main className="register">
+        <AddMain>
         {username && password && email && firstName && lastName && birthday && submitted ?
             <div className="confirmation">
                 <h1>Thank you for registering!</h1> 
                 <h2>Please check your inbox to confirm your account.</h2>
             </div> 
             :          
-            <form className="register-form" onSubmit={submitHandler}>
+            <RegLogForm onSubmit={submitHandler}>
                 <div className="">
                     <label htmlFor="username">Username</label>
-                    <input type="text" id="username" name="username" value={username} onChange={(e)=>{
+                    <StyledInput type="text" id="username" name="username" value={username} onChange={(e)=>{
                             setUsername(e.target.value)
                         }}
                         required
@@ -55,13 +57,13 @@ export default function RegisterForm() {
                 </div>
                 <div className="">
                     <label htmlFor="email">Email</label>
-                    <input type="email" id="email" name="email" value={email} onChange={(e)=>{
+                    <StyledInput type="email" id="email" name="email" value={email} onChange={(e)=>{
                             setEmail(e.target.value)
                         }}/>
                 </div>
                 <div className="">
                     <label htmlFor="firstname">First Name</label>
-                    <input type="text" id="firstname" name="firstname" value={firstName} onChange={(e)=>{
+                    <StyledInput type="text" id="firstname" name="firstname" value={firstName} onChange={(e)=>{
                             setFirstName(e.target.value)
                         }}
                         required
@@ -69,7 +71,7 @@ export default function RegisterForm() {
                 </div>
                 <div className="">
                     <label htmlFor="lastname">Last Name</label>
-                    <input type="Text" id="lastname" name="lastname" value={lastName} onChange={(e)=>{
+                    <StyledInput type="Text" id="lastname" name="lastname" value={lastName} onChange={(e)=>{
                             setLastName(e.target.value)
                         }}
                         required
@@ -77,7 +79,7 @@ export default function RegisterForm() {
                 </div>
                 <div className="">
                     <label htmlFor="password">Password</label>
-                    <input type="password" id="password" name="password" value={password} onChange={(e)=>{
+                    <StyledInput type="password" id="password" name="password" value={password} onChange={(e)=>{
                             setPassword(e.target.value)
                         }}                    
                         pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
@@ -89,7 +91,7 @@ export default function RegisterForm() {
                 </div>
                 <div className="">
                     <label htmlFor="birthday">Birthday</label>
-                    <input type="date" id="birthday" name="birthday" value={birthday} onChange={(e)=>{
+                    <StyledInput type="date" id="birthday" name="birthday" value={birthday} onChange={(e)=>{
                             setBirthday(e.target.value)
                         }}
                         required
@@ -97,9 +99,9 @@ export default function RegisterForm() {
                 </div>
                 <input type="submit" value="Register" className="button" disabled={loading}/>
                 <Link to="/" className="link-login">Already launched?</Link>
-            </form>  
+            </RegLogForm>  
             }
-        </main>
+        </AddMain>
         </>
     );
 }
