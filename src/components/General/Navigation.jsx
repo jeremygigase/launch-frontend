@@ -21,7 +21,7 @@ export default function Home() {
 
     return <>
     <Nav>
-        <StyledLink to="/home"><img src={logo} alt="launch logo" className="nav-logo"/> </StyledLink>
+        <StyledLink to="/"><img src={logo} alt="launch logo" className="nav-logo"/> </StyledLink>
         <Menu>
           <Item3>
             <StyledLink to="/calendar">Calendar </StyledLink>

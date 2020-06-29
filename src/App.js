@@ -36,13 +36,6 @@ function App() {
             render={() => {
               return loggedIn ? <Redirect to="/home" /> : <Register />;
             }}/>
-
-        <Route
-            path="/home"
-            render={() => {
-              return loggedIn ? <Home /> : <Login />
-            }}
-          />
         <Route
             path="/addtask"
             render={() => {

@@ -5,11 +5,14 @@ import React, {useState} from "react";
 import TaskList from './Task/TaskList'
 
 // Styling
-import {Main, Column1, Column2, StyledCalendar, Title} from './StyledComponents'
+import {Main, Column1, Column2, StyledCalendar, Title, Request, StatusTitle} from './StyledComponents'
 
 export default function CalendarPage() {
 
     const [date, setDate] = useState(new Date())
+    const [click, setClick] = useState(false)
+    const [status, setStatus] = useState("complete")
+    const [buttonStatus, setButtonStatus] = useState("Incomplete")
 
     // Changes JS Date object to date used in database
     const formatDate = date => {
@@ -29,9 +32,20 @@ export default function CalendarPage() {
     //Send 2 things through as props
     let props = {
         date: formatDate(date),
-        status:"incomplete"
+        status: status
         }
 
+
+    const clickHandler = () => {
+        setClick(!click)
+        if(click === true){
+            setStatus("complete")
+            setButtonStatus("Incomplete")
+        } else {
+            setStatus("incomplete")
+            setButtonStatus("Complete")
+        }
+    }
 
     const onChange = date => {
         setDate(date);
@@ -41,8 +55,10 @@ export default function CalendarPage() {
         <Column1>
             <Title>Calendar</Title>
             <StyledCalendar  onChange={onChange} value={date} />  
+            <Request type="button" value={buttonStatus} onClick={clickHandler} />
         </Column1>
         <Column2>
+            <StatusTitle>{status.charAt(0).toUpperCase() + status.slice(1)}</StatusTitle>
             <TaskList {...props}/> 
         </Column2>              
     </Main>;

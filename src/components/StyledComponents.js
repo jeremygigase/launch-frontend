@@ -50,6 +50,12 @@ color: #136F63;
 font-weight: 700;
 font-size: 1.5em; `;
 
+export const StatusTitle= styled.h2`
+color: #136F63;
+font-weight: 700;
+font-size: 1.5em; 
+margin-left: 1em;`;
+
 /* RegisterLogin*/
 
 export const RegLogForm = styled.form`

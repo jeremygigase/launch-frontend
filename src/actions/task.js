@@ -98,7 +98,7 @@ export const setTasksSucces = (data) => ({
     .then(response => {
         console.log(response)
         dispatch(completeTaskSucces())
-        window.location.reload(false);
+        window.location.reload(true);
     })
     .catch(dispatch(completeTaskError("Could not complete task!")))
 }
@@ -123,7 +123,7 @@ export const deleteTask = (id) => (dispatch) => {
     .then(response => {
         console.log(response)
         dispatch(deleteTaskSucces())
-        window.location.reload(false);
+        window.location.reload(true);
     })
     .catch(dispatch(deleteTaskError("Could not delete task!")))
 }
